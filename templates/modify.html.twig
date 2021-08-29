@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale-1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../ckeditor/ckeditor.js"></script>
+
+</head>
+    <body>
+            <form class="form-container" action="{{ path('update', {'id': new.id } )}}" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                      <strong><label for="title">Plat</label></strong>
+                      <input type="text" class="form-control" id="title" placeholder="Write your title" name="title" value = "{{new.title}}">
+                    </div>
+                    <div class="form-group">
+                            <strong><label for="exampleFormControlSelect1">Sucré / salé </label></strong>
+                      <select class="form-control" name="category" id="exampleFormControlSelect1" required>
+                        {% for c in cat %}
+                        {% for cc in new.categories %}
+                        <option value = "{{c.id}}" selected="{{cc.name}}">{{ c.name }}</option>
+                        {% endfor %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <strong><label>Description</label></strong>
+                      <textarea class="form-control" id="editor1" name="editor1" rows="10"> {{new.subject}}</textarea>
+                    </div>
+                    <div class="form-group">
+                            <strong><label for="image">Insert image</label></strong>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Modifier</button>
+                          <script>
+                                // Replace the <textarea id="editor1"> with a CKEditor
+                                // instance, using default configuration.
+                                CKEDITOR.replace( 'editor1' );
+                            </script>
+                  </form>
+    </body>
+<style>
+.form-container{
+    padding: 30px;
+    border-radius: 10px;
+    width: 550px;
+    height: 750 px;
+    box-shadow: 0px 0px 10px 0px #000;
+    left: 50%;
+    top: 50%;
+    margin-left: -18%;
+    position: absolute;
+    margin-top: -16%;
+}
+
+
+</style>
+
+</html>
