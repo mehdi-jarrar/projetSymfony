@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\NewsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DishesRepository")
  */
-class News
+class Dishes
 {
     /**
      * @ORM\Id()
@@ -39,12 +39,12 @@ class News
     private $date;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category", mappedBy="news")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", mappedBy="dishes")
      */
     private $categories;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="news")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="dishes")
      */
     private $user;
 
@@ -119,7 +119,7 @@ class News
     {
         if (!$this->categories->contains($category)) {
             $this->categories[] = $category;
-            $category->addNews($this);
+            $category->addDishes($this);
         }
 
         return $this;
@@ -129,7 +129,7 @@ class News
     {
         if ($this->categories->contains($category)) {
             $this->categories->removeElement($category);
-            $category->removeNews($this);
+            $category->removeDishes($this);
         }
 
         return $this;

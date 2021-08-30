@@ -61,10 +61,10 @@
                                 <a class="nav-link" href="{{ path('main') }}">Menu</a>
                            
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('news') }}">Ajouter Plat</a>
+                                <a class="nav-link" href="{{ path('adddishform') }}">Ajouter Plat</a>
                             </li>                   
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('mynews') }}">Mes plats</a>
+                                <a class="nav-link" href="{{ path('mydishes') }}">Mes plats</a>
                             </li>
                             
                             
@@ -91,8 +91,8 @@
                                     <div class="blog-top clearfix">
                                         <h4 class="pull-left">Mes Plats : <a href="#"></a></a></h4>
                                     </div>
-         {% if news %}
-                                     {% for new in news %}
+         {% if dishes %}
+                                     {% for dish in dishes %}
                             <div class="blog-list clearfix">
 
                                 <hr class="invis">
@@ -100,25 +100,25 @@
                                 <div class="blog-box row">
                                     <div class="col-md-4">
                                         <div class="post-media">
-                                           <a href=" {{ path('single',{ 'id': new.id }) }}" title="">
-                                                <img src="img/{{new.image}}" alt="" class="img-fluid">
+                                           <a href=" {{ path('single',{ 'id': dish.id }) }}" title="">
+                                                <img src="img/{{dish.image}}" alt="" class="img-fluid">
                                                 <div class="hovereffect"></div>
                                             </a>
                                         </div><!-- end media -->
                                     </div><!-- end col -->
 
                                     <div class="blog-meta big-meta col-md-8">
-                                        <h4><a href=" {{ path('single',{ 'id': new.id }) }}"  title="">{{new.title }}</p>
-                                        {% for c in new.categories %}
-                                        <small class="firstsmall"><a class="bg-orange" href=" {{ path('single',{ 'id': new.id }) }}" title="">{{c.name}}</a></small>
+                                        <h4><a href=" {{ path('single',{ 'id': dish.id }) }}"  title="">{{dish.title }}</p>
+                                        {% for c in dish.categories %}
+                                        <small class="firstsmall"><a class="bg-orange" href=" {{ path('single',{ 'id': dish.id }) }}" title="">{{c.name}}</a></small>
                                        {% endfor %}                               
-                                        <small><a href=" {{ path('single',{ 'id': new.id }) }}"  title="">{{new.date|date('Y-m-d') }}</a></small>
-                                         {% for u in new.user%}
+                                        <small><a href=" {{ path('single',{ 'id': dish.id }) }}"  title="">{{dish.date|date('Y-m-d') }}</a></small>
+                                         {% for u in dish.user%}
                                         <small><a href="" title="" >{{u.username}}</a></small>
                                         {% endfor %}
                                         
-                                        <a class="btn btn-primary" href="{{ path('delnews', {'id': new.id } )}}" role="button">Supprimer Plat</a>
-                                        <a class="btn btn-primary" href=" {{ path('modify',{ 'id': new.id }) }}" role="button">Modifier Plat</a>
+                                        <a class="btn btn-primary" href="{{ path('deldishes', {'id': dish.id } )}}" role="button">Supprimer Plat</a>
+                                        <a class="btn btn-primary" href=" {{ path('modify',{ 'id': dish.id }) }}" role="button">Modifier Plat</a>
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
@@ -129,19 +129,7 @@
         
                                 <hr class="invis">
         
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination justify-content-start">
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#">Next</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div><!-- end col -->
-                                </div><!-- end row -->
+                                
                             </div><!-- end col -->
         
                             

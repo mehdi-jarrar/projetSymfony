@@ -9,16 +9,16 @@
 
 </head>
     <body>
-            <form class="form-container" action="{{ path('update', {'id': new.id } )}}" enctype="multipart/form-data" method="POST">
+            <form class="form-container" action="{{ path('update', {'id': dish.id } )}}" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                       <strong><label for="title">Plat</label></strong>
-                      <input type="text" class="form-control" id="title" placeholder="Write your title" name="title" value = "{{new.title}}">
+                      <input type="text" class="form-control" id="title" placeholder="Write your title" name="title" value = "{{dish.title}}">
                     </div>
                     <div class="form-group">
                             <strong><label for="exampleFormControlSelect1">Sucré / salé </label></strong>
                       <select class="form-control" name="category" id="exampleFormControlSelect1" required>
                         {% for c in cat %}
-                        {% for cc in new.categories %}
+                        {% for cc in dish.categories %}
                         <option value = "{{c.id}}" selected="{{cc.name}}">{{ c.name }}</option>
                         {% endfor %}
                         {% endfor %}
@@ -27,7 +27,7 @@
                     
                     <div class="form-group">
                       <strong><label>Description</label></strong>
-                      <textarea class="form-control" id="editor1" name="editor1" rows="10"> {{new.subject}}</textarea>
+                      <textarea class="form-control" id="editor1" name="editor1" rows="10"> {{dish.subject}}</textarea>
                     </div>
                     <div class="form-group">
                             <strong><label for="image">Insert image</label></strong>

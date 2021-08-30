@@ -22,41 +22,41 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\News", mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Dishes", mappedBy="user")
      */
-    private $news;
+    private $dishes;
 
     public function __construct()
     {
         parent::__construct();
-        $this->news = new ArrayCollection();
+        $this->dishes = new ArrayCollection();
         $this->roles = array('ROLE_USER');
         // your own logic
     }
 
     /**
-     * @return Collection|News[]
+     * @return Collection|Dishes[]
      */
-    public function getNews(): Collection
+    public function getDishes(): Collection
     {
-        return $this->news;
+        return $this->dishes;
     }
 
-    public function addNews(News $news): self
+    public function addDishes(Dishes $dishes): self
     {
-        if (!$this->news->contains($news)) {
-            $this->news[] = $news;
-            $news->addUser($this);
+        if (!$this->dishes->contains($dishes)) {
+            $this->dishes[] = $dishes;
+            $dishes->addUser($this);
         }
 
         return $this;
     }
 
-    public function removeNews(News $news): self
+    public function removeDishes(Dishes $dishes): self
     {
-        if ($this->news->contains($news)) {
-            $this->news->removeElement($news);
-            $news->removeUser($this);
+        if ($this->dishes->contains($dishes)) {
+            $this->dishes->removeElement($dishes);
+            $dishes->removeUser($this);
         }
 
         return $this;

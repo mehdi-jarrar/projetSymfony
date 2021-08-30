@@ -24,13 +24,13 @@ class Category
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\news", inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Dishes", inversedBy="categories")
      */
-    private $news;
+    private $dishes;
 
     public function __construct()
     {
-        $this->news = new ArrayCollection();
+        $this->dishes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,26 +51,26 @@ class Category
     }
 
     /**
-     * @return Collection|news[]
+     * @return Collection|dishes[]
      */
-    public function getNews(): Collection
+    public function getDishes(): Collection
     {
-        return $this->news;
+        return $this->dishes;
     }
 
-    public function addNews(news $news): self
+    public function addDishes(dishes $dishes): self
     {
-        if (!$this->news->contains($news)) {
-            $this->news[] = $news;
+        if (!$this->dishes->contains($dishes)) {
+            $this->dishes[] = $dishes;
         }
 
         return $this;
     }
 
-    public function removeNews(news $news): self
+    public function removeDishes(dishes $dishes): self
     {
-        if ($this->news->contains($news)) {
-            $this->news->removeElement($news);
+        if ($this->dishes->contains($dishes)) {
+            $this->dishes->removeElement($dishes);
         }
 
         return $this;

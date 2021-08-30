@@ -62,10 +62,10 @@
                             </li>
                            {% if app.user %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('news') }}">Ajouter Plat</a>
+                                <a class="nav-link" href="{{ path('adddishform') }}">Ajouter Plat</a>
                             </li>                   
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('mynews') }}">Mes Plats</a>
+                                <a class="nav-link" href="{{ path('mydishes') }}">Mes Plats</a>
                             </li>
                             {% endif %}
                             
@@ -78,10 +78,10 @@
                               </li>
                         {% else %}
                             <li class="nav-item">
-                              <a class="nav-link active" href="{{ path('connexion') }}">Connexion</a>
+                              <a class="nav-link active" href="{{ path('fos_user_security_login') }}">Connexion</a>
                             </li>   
                             <li class="nav-item">
-                              <a class="nav-link" href="{{ path('enreg') }}">S'inscrire?</a>
+                              <a class="nav-link" href="{{ path('fos_user_registration_register') }}">S'inscrire?</a>
                             </li>
                         {% endif %}
                             
@@ -101,30 +101,30 @@
                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                         <div class="page-wrapper">
                             <div class="blog-title-area text-center">
-                             {% for c in new.categories %}
+                             {% for c in dish.categories %}
                                 <span class="color-orange"><a href="" title="">{{c.name}}</a></span>
                                 {% endfor %}
-                                <h3>{{new.title}}</h3>
+                                <h3>{{dish.title}}</h3>
 
                                 <div class="blog-meta big-meta">
-                                    <small><a href="tech-single.html" title="">{{new.date|date('Y-m-d') }}</a></small>
+                                    <small><a href="tech-single.html" title="">{{dish.date|date('Y-m-d') }}</a></small>
                                     
-                                    {% for u in new.user %}
+                                    {% for u in dish.user %}
                                     <small><a  title="">{{u.username}}</a></small>
                                     {% endfor %}
-                                    <small><a href="#" title=""><i class="fa fa-eye"></i> {{new.id}}</a></small>
+                                    <small><a href="#" title=""><i class="fa fa-eye"></i> {{dish.id}}</a></small>
                                 </div><!-- end meta -->
 
                                 
                             </div><!-- end title -->
 
                             <div class="single-post-media">
-                                <img src="../img/{{new.image}}" alt="" class="img-fluid">
+                                <img src="../img/{{dish.image}}" alt="" class="img-fluid">
                             </div><!-- end media -->
 
                             <div class="blog-content">  
                                 
-                                      {{new.subject | raw  }}
+                                      {{dish.subject | raw  }}
                                                                     
 
                             </div><!-- end content -->
