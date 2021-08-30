@@ -78,10 +78,10 @@
                               </li>
                         {% else %}
                             <li class="nav-item">
-                              <a class="nav-link active" href="{{ path('connexion') }}">Connexion</a>
+                              <a class="nav-link active" href="{{ path('fos_user_security_login') }}">Connexion</a>
                             </li>   
                             <li class="nav-item">
-                              <a class="nav-link" href="{{ path('enreg') }}">S'inscrire?</a>
+                              <a class="nav-link" href="{{ path('fos_user_registration_register') }}">S'inscrire?</a>
                             </li>
                         {% endif %}
                             
@@ -137,20 +137,7 @@
 
                         <hr class="invis">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-start">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div><!-- end col -->
-                        </div><!-- end row -->
+                        
                     </div><!-- end col -->
 
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">

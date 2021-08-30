@@ -30,6 +30,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->news = new ArrayCollection();
+        $this->roles = array('ROLE_USER');
         // your own logic
     }
 

@@ -44,7 +44,7 @@ class News
     private $categories;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\user", inversedBy="news")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="news")
      */
     private $user;
 

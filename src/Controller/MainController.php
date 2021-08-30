@@ -50,9 +50,12 @@ class MainController extends AbstractController
      */
     public function mynews()
     {
+     
+        
+  
         $authChecker = $this->container->get('security.authorization_checker');
         $router = $this->container->get('router');
-
+        
         if ($authChecker->isGranted('ROLE_ADMIN')  ) {
             $repository = $this->getDoctrine()->getRepository(News::class);
             $news = $repository->createQueryBuilder('e')->addOrderBy('e.id', 'DESC')->getQuery()->execute();
@@ -60,11 +63,16 @@ class MainController extends AbstractController
 
         }elseif( $authChecker->isGranted('ROLE_USER')){
             $user=$this->getUser();  
+           
+            
             $news = $user->getNews() ; 
+            
+            
             return $this->render('mynews.html.twig', array('news'=>$news));
 
         }else{
-            return $this->render('login.html.twig');
+            var_dump("error") ; 
+            die(); 
         }
         
     }
@@ -72,13 +80,7 @@ class MainController extends AbstractController
 
 
 
-     /**
-     * @Route("/connexion", name="connexion")
-     */
-    public function connexion()
-    {
-        return $this->render('login.html.twig');
-    }
+    
     /**
      * @Route("/delnews", name="delnews")
      */
